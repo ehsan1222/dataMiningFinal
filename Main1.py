@@ -9,9 +9,12 @@ x = data.iloc[:, 0:4]
 y = data.iloc[:, 4]
 
 # split data to train and test
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.25, random_state=76)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.25, random_state=63)
+
+# train data
 y_predict_knn = cAlgo.k_nearest_neighbor(x_train, y_train, x_test)
 y_predict_svm = cAlgo.support_vector_machine(x_train, y_train, x_test)
+y_predict_mlp = cAlgo.multilayer_perceptron(x_train, y_train, x_test, max_iter=500, activation='identity')
 
 
 def testResults(y_test, y_pred):
@@ -26,5 +29,7 @@ def testResults(y_test, y_pred):
 
     print((result["true"] / len(lst1)) * 100)
 
+
 testResults(y_test, y_predict_knn)
 testResults(y_test, y_predict_svm)
+testResults(y_test, y_predict_mlp)
