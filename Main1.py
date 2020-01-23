@@ -16,6 +16,7 @@ y_predict_knn = cAlgo.k_nearest_neighbor(x_train, y_train, x_test)
 y_predict_svm = cAlgo.support_vector_machine(x_train, y_train, x_test)
 y_predict_mlp = cAlgo.multilayer_perceptron(x_train, y_train, x_test, max_iter=500, activation='identity')
 y_predict_nb = cAlgo.naive_bayes(x_train, y_train, x_test)
+y_predict_dt = cAlgo.decision_tree(x_train, y_train, x_test)
 
 
 def testResults(y_test, y_pred):
@@ -35,3 +36,4 @@ testResults(y_test, y_predict_knn)
 testResults(y_test, y_predict_svm)
 testResults(y_test, y_predict_mlp)
 testResults(y_test, y_predict_nb)
+testResults(y_test, y_predict_dt)
