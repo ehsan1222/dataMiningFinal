@@ -9,6 +9,6 @@ def k_nearest_neighbor(x_train, y_train, x_test, n_neighbors=5):
 
 
 def support_vector_machine(x_train, y_train, x_test):
-    sVM = svm.SVC()
+    sVM = svm.SVC(kernel='linear')
     sVM.fit(x_train, y_train)
     return sVM.predict(x_test)
