@@ -34,3 +34,9 @@ def decision_tree(x_train, y_train, x_test, criterion='gini'):
     clf = DecisionTreeClassifier(criterion=criterion, random_state=0)
     clf.fit(x_train, y_train)
     return clf.predict(x_test)
+
+
+def neural_network(x_train, y_train, x_test, activation='relu', max_iter=200):
+    mlp = MLPClassifier(hidden_layer_sizes=(len(x_train),), activation=activation, max_iter=max_iter, random_state=0)
+    mlp.fit(x_train, y_train)
+    return mlp.predict(x_test)
